@@ -21,7 +21,7 @@
             height: 500px;
             border-radius: 50%;
             position: relative;
-            background-image: url("/images/dia.webp");
+            background-image: url("images/dia.webp");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
