@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bầu Cua Online</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="shortcut icon" href="/images/anh1.png" type="image/x-icon">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="content">
+          <div class="hidden"></div>
+          <div class="value">
+            <img class="image_1" src="/images/anh1.png" alt="Hình Ảnh" />
+            <img class="image_2" src="/images/anh1.png" alt="Hình Ảnh" />
+            <img class="image_3" src="/images/anh1.png" alt="Hình Ảnh" />
+          </div>
+        </div>
+        <div class="group-button">
+          <div class="action">
+            <button class="submit">Lắc</button>
+          </div>
+          <div class="show">
+            <button class="open">Mở Nắp</button>
+            <button class="hidden">Đóng Nắp</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const images = ["anh1", "anh2", "anh3", "anh4", "anh5", "anh6"];
+    const button_submit = document.querySelector("button.submit");
+    const button_show = document.querySelector("button.open");
+    const button_hidden = document.querySelector("button.hidden");
+    const hidden = document.querySelector("div.hidden");
+
+    button_submit.addEventListener("click", function () {
+      startBauCua();
+    });
+
+    button_show.addEventListener("click", function () {
+      hidden.classList.add("show");
+    });
+
+    button_hidden.addEventListener("click", function () {
+      hidden.classList.remove("show");
+    });
+
+    function randomBauCua() {
+      const image_1 = document.querySelector("img.image_1");
+      const image_2 = document.querySelector("img.image_2");
+      const image_3 = document.querySelector("img.image_3");
+      const randomIndex1 = Math.floor(Math.random() * images.length);
+      const randomIndex2 = Math.floor(Math.random() * images.length);
+      const randomIndex3 = Math.floor(Math.random() * images.length);
+
+      image_1.src = `/images/${images[randomIndex1]}.png`;
+      image_2.src = `/images/${images[randomIndex2]}.png`;
+      image_3.src = `/images/${images[randomIndex3]}.png`;
+    }
+
+    function startBauCua() {
+      const intervalId = setInterval(randomBauCua, 100);
+      setTimeout(() => {
+          clearInterval(intervalId);
+        }, 3000);
+    }
+  </script>
+</html>
